@@ -123,7 +123,7 @@ export default function Home() {
         ]}
         address="Av. de los Deportes 111, Tellería, 82017 Mazatlán, Sin."
         phone="+52 (687) 123-4567"
-        email="info@ciomaradecortes.org"
+        email="info@ciomardecortes.org"
         socialLinks={{
           facebook: "https://facebook.com",
           instagram: "https://instagram.com",
