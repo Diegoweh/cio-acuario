@@ -1,23 +1,51 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Header() {
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  useEffect(() => {
+    // Only load video on desktop devices with good connection
+    const isDesktop = window.innerWidth >= 768;
+    const connection = (navigator as any).connection;
+    const hasGoodConnection = !connection || connection.effectiveType === '4g';
+
+    if (isDesktop && hasGoodConnection) {
+      setShouldLoadVideo(true);
+    }
+  }, []);
+
   return (
     <header className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <Image
-        src="/img/headerCio.webp"
-        alt="Header background"
-        fill
-        priority
-        className="object-cover"
-        quality={100}
-      />
+      {/* Background Video or Image fallback */}
+      {shouldLoadVideo ? (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/video/headerCio.mp4" type="video/mp4" />
+          Tu navegador no soporta videos HTML5.
+        </video>
+      ) : (
+        <Image
+          src="/img/headerCio.webp"
+          alt="Header background"
+          fill
+          priority
+          className="object-cover"
+          quality={85}
+        />
+      )}
 
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/20 bg-opacity-50 z-10"></div>
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
 
       {/* Content */}
       <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">

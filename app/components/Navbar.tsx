@@ -23,7 +23,7 @@ export default function Navbar() {
         'fixed top-0 left-0 w-full z-50 transition-all duration-300',
         scrolled
           ? // fondo con glass cuando hay scroll
-            'bg-white/60 backdrop-blur-md supports-backdrop-filter:backdrop-blur-md ring-1 ring-black/5 shadow-sm'
+            'bg-black/30 backdrop-blur-md supports-backdrop-filter:backdrop-blur-md ring-1 ring-black/5 shadow-sm'
           : // transparente arriba del hero
             'bg-transparent'
       ].join(' ')}
@@ -36,9 +36,10 @@ export default function Navbar() {
               <Image
                 src="/img/logoCio.png"
                 alt="Logo de la empresa"
+                title='Logo'
                 width={130}
                 height={40}
-                className="h-auto w-auto bg-black/30 p-2 rounded-4xl"
+                className="h-auto w-auto "
                 priority
               />
             </Link>
@@ -104,7 +105,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black/45 backdrop-blur">
+        <div className="md:hidden bg-black/10 backdrop-blur">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link
               href="/"

@@ -29,21 +29,27 @@ const programsData = [
 const videosData = [
   {
     id: 1,
-    video: "https://www.pexels.com/es-es/download/video/857103/",
+    instagramUrl: "https://www.instagram.com/reel/DOHcScrkgda/embed",
     title: "Rescate Marino",
     description: "Conoce cómo rescatamos y rehabilitamos especies marinas",
   },
   {
     id: 2,
-    video: "https://www.pexels.com/es-es/download/video/7723259/",
+    instagramUrl: "https://www.instagram.com/reel/DQrw8qmgctN/embed",
     title: "Educación en Acción",
     description: "Nuestros programas educativos llegan a miles de estudiantes",
   },
   {
     id: 3,
-    video: "https://www.pexels.com/es-es/download/video/5079225/",
+    instagramUrl: "https://www.instagram.com/p/DObd9nvjnPu/embed",
     title: "Investigación Marina",
     description: "Descubre nuestros proyectos de investigación científica",
+  },
+  {
+    id: 4,
+    instagramUrl: "https://www.instagram.com/reel/DPPgXwkD_qp/embed",
+    title: "Limpieza de Playas",
+    description: "Unidos por un océano más limpio",
   },
 ];
 
@@ -60,11 +66,17 @@ export function ProgramsSection() {
   };
 
   const nextVideoSlide = () => {
-    setCurrentVideoSlide((prev) => (prev + 1) % videosData.length);
+    // En móvil avanza de 1 en 1, en desktop de 2 en 2
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const increment = isMobile ? 1 : 2;
+    setCurrentVideoSlide((prev) => (prev + increment) >= videosData.length ? 0 : prev + increment);
   };
 
   const prevVideoSlide = () => {
-    setCurrentVideoSlide((prev) => (prev - 1 + videosData.length) % videosData.length);
+    // En móvil retrocede de 1 en 1, en desktop de 2 en 2
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const decrement = isMobile ? 1 : 2;
+    setCurrentVideoSlide((prev) => (prev - decrement) < 0 ? (isMobile ? videosData.length - 1 : Math.max(0, videosData.length - 2)) : prev - decrement);
   };
 
   return (
@@ -248,6 +260,17 @@ export function ProgramsSection() {
       {/* Video Carousel Section */}
       <section className="relative bg-gray-50 px-4 py-16 md:py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto">
+          {/* Title Above Videos - Mobile Only */}
+          <motion.h3
+            className="text-2xl md:hidden font-bold text-gray-800 text-center mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            Nuestros Programas
+          </motion.h3>
+
           {/* Carousel Container */}
           <motion.div
             className="relative overflow-hidden rounded-lg"
@@ -256,74 +279,56 @@ export function ProgramsSection() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
             viewport={{ once: true }}
           >
-            {/* Slides */}
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentVideoSlide * 100}%)` }}
-            >
-              {videosData.map((videoItem, index) => (
-                <div key={videoItem.id} className="min-w-full relative">
-                  {/* Video */}
-                  <div className="relative h-[500px] md:h-[600px] lg:h-[700px]">
-                    <video
-                      src={videoItem.video}
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
+            {/* Videos Container */}
+            <div className="relative min-h-[700px] md:min-h-[800px] py-8 md:py-4">
+              <div className="flex justify-center items-center gap-4 md:gap-8 h-full px-4 md:px-8">
+                {/* First Video - Always visible */}
+                {videosData[currentVideoSlide] && (
+                  <motion.div
+                    key={`video-${currentVideoSlide}`}
+                    className="w-full max-w-[400px] h-[650px] md:h-[750px] rounded-lg overflow-hidden shadow-2xl"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  >
+                    <iframe
+                      src={videosData[currentVideoSlide].instagramUrl}
+                      className="w-full h-full border-0"
+                      style={{ border: 0 }}
+                      scrolling="no"
+                      allow="encrypted-media"
+                      title={`Instagram post ${currentVideoSlide + 1}`}
                     />
+                  </motion.div>
+                )}
 
-                    {/* Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-
-                    {/* Content Overlay - Left Bottom Corner */}
-                    <div className="absolute bottom-0 left-0 p-8 md:p-12 lg:p-16 max-w-2xl">
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={currentVideoSlide === index ? `vcontent-${videoItem.id}` : `vcontent-inactive-${videoItem.id}`}
-                          initial={{ y: 40, opacity: 0 }}
-                          animate={{ y: currentVideoSlide === index ? 0 : 20, opacity: currentVideoSlide === index ? 1 : 0 }}
-                          exit={{ y: -20, opacity: 0 }}
-                          transition={{ duration: 0.6, ease: "easeOut" }}
-                        >
-                          {/* "PROGRAMA" Label */}
-                          <p className="text-white/90 text-xs md:text-sm tracking-widest uppercase font-semibold mb-4">
-                            PROGRAMA
-                          </p>
-
-                          {/* Title */}
-                          <h3 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                            {videoItem.title}
-                          </h3>
-
-                          {/* Description */}
-                          <p className="text-white/90 text-base md:text-lg leading-relaxed mb-6">
-                            {videoItem.description}
-                          </p>
-
-                          {/* Arrow Icon */}
-                          <motion.div
-                            className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-sky-500 hover:bg-sky-600 transition-colors cursor-pointer"
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: currentVideoSlide === index ? 1 : 0.95, opacity: currentVideoSlide === index ? 1 : 0 }}
-                            transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
-                          >
-                            <ArrowRight className="w-6 h-6 text-white" />
-                          </motion.div>
-                        </motion.div>
-                      </AnimatePresence>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                {/* Second Video - Hidden on mobile */}
+                {videosData[currentVideoSlide + 1] && (
+                  <motion.div
+                    key={`video-${currentVideoSlide + 1}`}
+                    className="hidden md:block w-full max-w-[400px] h-[650px] md:h-[750px] rounded-lg overflow-hidden shadow-2xl"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                  >
+                    <iframe
+                      src={videosData[currentVideoSlide + 1].instagramUrl}
+                      className="w-full h-full border-0"
+                      style={{ border: 0 }}
+                      scrolling="no"
+                      allow="encrypted-media"
+                      title={`Instagram post ${currentVideoSlide + 2}`}
+                    />
+                  </motion.div>
+                )}
+              </div>
             </div>
 
-            {/* Navigation Arrows */}
+            {/* Navigation Arrows - Positioned outside of iframe area */}
             <motion.button
               onClick={prevVideoSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all flex items-center justify-center group"
-              aria-label="Previous video"
+              className="absolute -left-4 md:left-4 top-1/2 -translate-y-1/2 w-14 h-14 md:w-12 md:h-12 rounded-full bg-sky-500 hover:bg-sky-600 shadow-lg transition-all flex items-center justify-center group z-10"
+              aria-label="Previous videos"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
@@ -334,8 +339,8 @@ export function ProgramsSection() {
 
             <motion.button
               onClick={nextVideoSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all flex items-center justify-center group"
-              aria-label="Next video"
+              className="absolute -right-4 md:right-4 top-1/2 -translate-y-1/2 w-14 h-14 md:w-12 md:h-12 rounded-full bg-sky-500 hover:bg-sky-600 shadow-lg transition-all flex items-center justify-center group z-10"
+              aria-label="Next videos"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
@@ -343,26 +348,41 @@ export function ProgramsSection() {
             >
               <ChevronRight className="w-6 h-6 text-white" />
             </motion.button>
+          </motion.div>
 
-            {/* Dots Indicator */}
-            <motion.div
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-              viewport={{ once: true }}
-            >
+          {/* Dots Indicator - Below the carousel */}
+          <motion.div
+            className="flex justify-center gap-2 mt-8"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {/* Mobile: show all dots, Desktop: show pairs */}
+            <div className="md:hidden flex gap-2">
               {videosData.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentVideoSlide(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentVideoSlide ? "bg-white w-8" : "bg-white/50 hover:bg-white/75"
+                    index === currentVideoSlide ? "bg-sky-500 w-8" : "bg-gray-400 hover:bg-gray-600"
                   }`}
                   aria-label={`Go to video ${index + 1}`}
                 />
               ))}
-            </motion.div>
+            </div>
+            <div className="hidden md:flex gap-2">
+              {Array.from({ length: Math.ceil(videosData.length / 2) }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentVideoSlide(index * 2)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index * 2 === currentVideoSlide ? "bg-sky-500 w-8" : "bg-gray-400 hover:bg-gray-600"
+                  }`}
+                  aria-label={`Go to video pair ${index + 1}`}
+                />
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>

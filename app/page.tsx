@@ -11,6 +11,7 @@ import { ImpactBanner } from "./components/ImpactBanner";
 import { PartnersSection } from "./components/PartnersSection";
 import { pre } from "motion/react-client";
 import { Footer } from "./components/Footer";
+import { FlyingPelican } from "./components/FlyingPelican";
 
 export default function Home() {
   const sections = [
@@ -96,9 +97,11 @@ export default function Home() {
   
   return (
     <div className="min-h-screen bg-zinc-50 font-sans">
+
       <Navbar />
       <Header />
       <Hero />
+      <FlyingPelican />
       <AboutSection />
       <BannerSection />
       <ProgramsSection />
