@@ -42,7 +42,7 @@ export function FlyingPelican() {
   return (
     <div ref={containerRef} className="pelicano-container relative">
       <div className="absolute left-0 top-1/2 z-30 pointer-events-none md:block">
-        <div ref={pelicanoRef} className="relative w-32 h-32 lg:w-140 lg:h-140">
+        <div ref={pelicanoRef} className="relative w-32 h-32 lg:w-100 lg:h-100">
           <Image
             src="/img/pelicano.png"
             alt="Flying pelican"

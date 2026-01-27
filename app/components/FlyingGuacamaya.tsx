@@ -41,8 +41,8 @@ export function FlyingGuacamaya() {
 
   return (
     <div ref={containerRef} className="guacamaya-container relative">
-      <div className="absolute left-1/2 -translate-x-1/1 bottom-0 z-30 pointer-events-none md:block">
-        <div ref={guacamayaRef} className="relative w-52 h-52 lg:w-60 lg:h-60">
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-0 z-30 pointer-events-none hidden md:block">
+        <div ref={guacamayaRef} className="relative w-52 h-52 lg:w-65 lg:h-65">
           <Image
             src="/img/guacamaya.webp"
             alt="Flying guacamaya"

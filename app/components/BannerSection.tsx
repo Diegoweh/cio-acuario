@@ -35,7 +35,7 @@ const BannerSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden">
+    <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-sky-500 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         {/* Title */}
         <motion.div
@@ -45,9 +45,9 @@ const BannerSection = () => {
           transition={{ duration: 0.9, ease: 'easeOut', delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">
             &ldquo;El océano no comienza en la costa: empieza en cada hogar, en cada decisión,{' '}
-            <span className="text-sky-500">en cada gota que fluye hacia él&rdquo;</span>
+            <span className="text-gray-800">en cada gota que fluye hacia él&rdquo;</span>
           </h2>
         </motion.div>
 
@@ -120,7 +120,7 @@ const BannerSection = () => {
                 onClick={() => goToSlide(index)}
                 className={`transition-all duration-300 rounded-full ${
                   currentSlide === index
-                    ? 'bg-sky-500 w-8 md:w-10 h-2 md:h-2.5'
+                    ? 'bg-white w-8 md:w-10 h-2 md:h-2.5'
                     : 'bg-white/60 hover:bg-white/80 w-2 md:w-2.5 h-2 md:h-2.5'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
