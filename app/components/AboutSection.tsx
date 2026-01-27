@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { PdfModal } from './PdfModal';
+import { FlyingPelican } from './FlyingPelican';
+import { FlyingGuacamaya } from './FlyingGuacamaya';
 
 export function AboutSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,8 +20,10 @@ export function AboutSection() {
   return (
     <>
       {/* First Section - Image on Right */}
-      
-      <section className="flex items-center justify-center bg-gray-50 px-4 py-16 md:py-24 lg:py-32 overflow-hidden">
+
+      <FlyingPelican />
+
+      <section className="flex items-center justify-center bg-sky-500 px-4 py-16 md:py-24 lg:py-32 overflow-hidden">
         <div className="max-w-[1400px] w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 items-center">
           {/* Left Content */}
           <div className="flex flex-col justify-center space-y-8 md:space-y-12">
@@ -32,14 +36,14 @@ export function AboutSection() {
               viewport={{ once: true }}
             >
               <div className="flex items-center gap-3 md:gap-4">
-                <div className="w-12 md:w-20 h-px bg-sky-500"></div>
-                <h2 className="text-sm md:text-lg lg:text-xl tracking-widest text-gray-800 uppercase font-semibold">
+                <div className="w-12 md:w-20 h-px bg-white"></div>
+                <h2 className="text-sm md:text-lg lg:text-xl tracking-widest text-white uppercase font-semibold">
                   Nosotros
                 </h2>
               </div>
 
               {/* Description */}
-              <p className="text-gray-700 leading-relaxed text-base md:text-xl lg:text-2xl">
+              <p className="text-white leading-relaxed text-base md:text-xl lg:text-2xl">
                 Nuestro propósito es articular esfuerzos, impulsar iniciativas y crear alianzas sólidas encaminadas a
                 lograr un legado de bienestar para la vida silvestre y la salud de nuestros océanos.
               </p>
@@ -56,28 +60,28 @@ export function AboutSection() {
               <Link
                 href="#colaboraciones"
                 onClick={(e) => handleLinkClick(e, 'Colaboraciones')}
-                className="text-gray-600 hover:text-sky-500 transition-colors duration-200 font-medium cursor-pointer"
+                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer"
               >
                 Colaboraciones
               </Link>
               <Link
                 href="#proyectos"
                 onClick={(e) => handleLinkClick(e, 'Proyectos')}
-                className="text-gray-600 hover:text-sky-500 transition-colors duration-200 font-medium cursor-pointer"
+                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer"
               >
                 Proyectos
               </Link>
               <Link
                 href="#eventos"
                 onClick={(e) => handleLinkClick(e, 'Eventos')}
-                className="text-gray-600 hover:text-sky-500 transition-colors duration-200 font-medium cursor-pointer"
+                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer"
               >
                 Eventos
               </Link>
               <Link
                 href="#intercambios"
                 onClick={(e) => handleLinkClick(e, 'Intercambios')}
-                className="text-gray-600 hover:text-sky-500 transition-colors duration-200 font-medium cursor-pointer"
+                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer"
               >
                 Intercambios
               </Link>
@@ -91,7 +95,7 @@ export function AboutSection() {
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.5 }}
               viewport={{ once: true }}
             ></motion.div>
-          </div>
+          </div>          
 
           {/* Right Image */}
           <motion.div
@@ -111,7 +115,9 @@ export function AboutSection() {
               />
             </div>
           </motion.div>
+
         </div>
+       
       </section>
 
       {/* Second Section - Image on Left */}
@@ -147,7 +153,7 @@ export function AboutSection() {
             {/* Header */}
             <div className="space-y-6 md:space-y-8">
               <div className="flex items-center gap-3 md:gap-4">
-                <h2 className="text-sm md:text-lg lg:text-xl tracking-widest text-gray-800 uppercase font-semibold">
+                <h2 className="text-sm md:text-lg lg:text-xl tracking-widest text-sky-500 uppercase font-semibold">
                   Colaboramos a través de diversas vías, con un enfoque local y visión regional.
                 </h2>
               </div>
@@ -170,7 +176,11 @@ export function AboutSection() {
             ></motion.div>
           </motion.div>
         </div>
+
+        
       </section>
+
+      <FlyingGuacamaya />
 
       {/* PDF Modal */}
       <PdfModal

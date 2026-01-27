@@ -3,13 +3,10 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import { AboutSection } from "./components/AboutSection";
 import BannerSection from "./components/BannerSection";
-
-import Link from "next/link";
 import { ProgramsSection } from "./components/ProgramsSection.tsx";
 import { Bird, BookOpen, Waves } from "lucide-react";
 import { ImpactBanner } from "./components/ImpactBanner";
 import { PartnersSection } from "./components/PartnersSection";
-import { pre } from "motion/react-client";
 import { Footer } from "./components/Footer";
 import { FlyingPelican } from "./components/FlyingPelican";
 
@@ -99,12 +96,17 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-50 font-sans">
 
       <Navbar />
+
       <Header />
-      <Hero />
-      <FlyingPelican />
+
+      <Hero />      
+
       <AboutSection />
+
       <BannerSection />
+
       <ProgramsSection />
+
       <ImpactBanner
         backgroundImage="/img/impactBanner.webp"
         title="Nuestro Impacto"
@@ -112,6 +114,7 @@ export default function Home() {
         sections={sections}
       />
       <PartnersSection />
+
       <Footer
         logo="/img/logoCio.png"
         organizationName="Centro de Investigaciones Oceánicas del Mar de Cortés"

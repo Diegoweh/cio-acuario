@@ -4,25 +4,26 @@ import Link from "next/link";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FlyingTurtle } from "./FlyingTurtle";
 
 const programsData = [
   {
     id: 1,
     image: "/img/venado.webp",
-    title: "Conservación",
-    description: "Protegemos y rehabilitamos especies en peligro de extinción",
+    title: "Bienestar Animal",
+    description: "En alianza con el Gran Acuario Mazatlán, cuidamos a la fauna regional y la vida silvestre.",
   },
   {
     id: 2,
-    image: "/img/pelicanos.webp",
-    title: "Educación Ambiental",
-    description: "Formamos conciencia sobre la importancia de los océanos",
+    image: "/img/pelicano.webp",
+    title: "Salud de los océanos",
+    description: "Colaboramos para preservar los ecosistemas costeros, reconociendo que el océano nos une a todos.",
   },
   {
     id: 3,
     image: "/img/manglar.webp",
-    title: "Investigación Científica",
-    description: "Desarrollamos estudios para comprender mejor la vida marina",
+    title: "Océano Inspirador",
+    description: "A través de la divulgación y la educación para la conservación, compartimos con diversos públicos la importancia de la vida silvestre y del océano.",
   },
 ];
 
@@ -96,7 +97,7 @@ export function ProgramsSection() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-12 h-px bg-sky-500"></div>
-                <h2 className="text-sm tracking-widest text-gray-800 uppercase font-semibold">
+                <h2 className="text-sm md:text-lg lg:text-xl tracking-widest text-gray-800 uppercase font-semibold">
                   PROGRAMAS
                 </h2>
               </div>
@@ -133,9 +134,12 @@ export function ProgramsSection() {
                 Donar
               </Link>
             </div>
-          </motion.div>
+          </motion.div>          
         </div>
+        <FlyingTurtle />
+        
       </section>
+            
 
       {/* Image Carousel Section */}
       <section className="relative bg-white px-4 py-16 md:py-20 overflow-hidden">

@@ -7,13 +7,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function FlyingPelican() {
-  const pelicanoRef = useRef(null);
+export function FlyingGuacamaya() {
+  const guacamayaRef = useRef(null);
   const containerRef = useRef(null);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
   useEffect(() => {
-    if (!pelicanoRef.current || !containerRef.current) return;
+    if (!guacamayaRef.current || !containerRef.current) return;
 
     timelineRef.current = gsap.timeline({
       scrollTrigger: {
@@ -24,9 +24,9 @@ export function FlyingPelican() {
       },
     });
 
-    timelineRef.current.to(pelicanoRef.current, {
-      x: 150,
-      y: -90,
+    timelineRef.current.to(guacamayaRef.current, {
+      x: -80,
+      y: -50,
       duration: 5,
       ease: 'none',
     });
@@ -40,12 +40,12 @@ export function FlyingPelican() {
   }, []);
 
   return (
-    <div ref={containerRef} className="pelicano-container relative">
-      <div className="absolute left-0 top-1/2 z-30 pointer-events-none md:block">
-        <div ref={pelicanoRef} className="relative w-32 h-32 lg:w-140 lg:h-140">
+    <div ref={containerRef} className="guacamaya-container relative">
+      <div className="absolute left-1/2 -translate-x-1/1 bottom-0 z-30 pointer-events-none md:block">
+        <div ref={guacamayaRef} className="relative w-52 h-52 lg:w-60 lg:h-60">
           <Image
-            src="/img/pelicano.png"
-            alt="Flying pelican"
+            src="/img/guacamaya.webp"
+            alt="Flying guacamaya"
             fill
             className="object-contain"
             priority

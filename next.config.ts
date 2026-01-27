@@ -1,8 +1,8 @@
-import type { NextConfig } from "next";
-
 const nextConfig = {
   /* config options here */
-  eslint: { ignoreDuringBuilds: true },
+  images: {
+    qualities: [75, 85],
+  },
 };
 
 export default nextConfig;

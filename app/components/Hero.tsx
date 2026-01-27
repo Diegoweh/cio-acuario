@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden">
       <div className="container mx-auto max-w-4xl text-center">
         <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-sky-500 mb-6"
           initial={{ y: 80, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}

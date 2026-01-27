@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ciomardecortes.org'),
   title: "CIO Mar de Cortés | Centro de Investigaciones Oceánicas",
   description: "Dedicados a la conservación, investigación y educación marina del Mar de Cortés. Protegemos especies en peligro, realizamos investigaciones científicas y educamos a la comunidad sobre la importancia de nuestros océanos.",
   keywords: [
@@ -61,14 +62,15 @@ export const metadata: Metadata = {
     description: "Dedicados a la conservación, investigación y educación marina del Mar de Cortés",
     images: ["/img/og-image.jpg"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
   verification: {
     google: "your-google-verification-code",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

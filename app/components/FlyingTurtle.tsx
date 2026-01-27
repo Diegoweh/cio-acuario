@@ -7,13 +7,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function FlyingPelican() {
-  const pelicanoRef = useRef(null);
+export function FlyingTurtle() {
+  const turtleRef = useRef(null);
   const containerRef = useRef(null);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
   useEffect(() => {
-    if (!pelicanoRef.current || !containerRef.current) return;
+    if (!turtleRef.current || !containerRef.current) return;
 
     timelineRef.current = gsap.timeline({
       scrollTrigger: {
@@ -24,9 +24,9 @@ export function FlyingPelican() {
       },
     });
 
-    timelineRef.current.to(pelicanoRef.current, {
-      x: 150,
-      y: -90,
+    timelineRef.current.to(turtleRef.current, {
+      x: -250,
+      y: -180,
       duration: 5,
       ease: 'none',
     });
@@ -40,12 +40,12 @@ export function FlyingPelican() {
   }, []);
 
   return (
-    <div ref={containerRef} className="pelicano-container relative">
-      <div className="absolute left-0 top-1/2 z-30 pointer-events-none md:block">
-        <div ref={pelicanoRef} className="relative w-32 h-32 lg:w-140 lg:h-140">
+    <div ref={containerRef} className="turtle-container relative">
+      <div className="absolute right-0 top-1/2 z-30 pointer-events-none md:block">
+        <div ref={turtleRef} className="relative w-32 h-32 lg:w-90 lg:h-90">
           <Image
-            src="/img/pelicano.png"
-            alt="Flying pelican"
+            src="/img/tortuga.webp"
+            alt="Swimming turtle"
             fill
             className="object-contain"
             priority

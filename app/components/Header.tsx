@@ -4,17 +4,25 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
+// Type definition for Network Information API
+interface NavigatorWithConnection extends Navigator {
+  connection?: {
+    effectiveType?: string;
+  };
+}
+
 export default function Header() {
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
 
   useEffect(() => {
     // Only load video on desktop devices with good connection
     const isDesktop = window.innerWidth >= 768;
-    const connection = (navigator as any).connection;
+    const connection = (navigator as NavigatorWithConnection).connection;
     const hasGoodConnection = !connection || connection.effectiveType === '4g';
 
     if (isDesktop && hasGoodConnection) {
-      setShouldLoadVideo(true);
+      // Use a microtask to avoid synchronous setState in effect
+      queueMicrotask(() => setShouldLoadVideo(true));
     }
   }, []);
 
@@ -30,7 +38,7 @@ export default function Header() {
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/video/headerCio.mp4" type="video/mp4" />
+          <source src="/video/headerCio-2-compressed.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.
         </video>
       ) : (
@@ -50,7 +58,7 @@ export default function Header() {
       {/* Content */}
       <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 uppercase"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-sky-300 mb-6 uppercase"
           initial={{ y: -80, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
