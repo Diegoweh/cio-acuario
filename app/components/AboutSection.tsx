@@ -60,28 +60,28 @@ export function AboutSection() {
               <Link
                 href="#colaboraciones"
                 onClick={(e) => handleLinkClick(e, 'Colaboraciones')}
-                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer"
+                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer shadow-lg"
               >
                 Colaboraciones
               </Link>
               <Link
                 href="#proyectos"
                 onClick={(e) => handleLinkClick(e, 'Proyectos')}
-                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer"
+                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer shadow-lg"
               >
                 Proyectos
               </Link>
               <Link
                 href="#eventos"
                 onClick={(e) => handleLinkClick(e, 'Eventos')}
-                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer"
+                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer shadow-lg"
               >
                 Eventos
               </Link>
               <Link
                 href="#intercambios"
                 onClick={(e) => handleLinkClick(e, 'Intercambios')}
-                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer"
+                className="text-sky-500 bg-white rounded-lg px-3 hover:text-white hover:bg-sky-800 transition-colors duration-200 font-medium cursor-pointer shadow-lg"
               >
                 Intercambios
               </Link>
