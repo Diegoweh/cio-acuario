@@ -23,7 +23,7 @@ export function AboutSection() {
 
       <FlyingPelican />
 
-      <section className="flex items-center justify-center bg-sky-500 px-4 py-16 md:py-24 lg:py-32 overflow-hidden">
+      <section className="flex items-center justify-center px-4 py-16 md:py-24 lg:py-32 overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/img/blue-bg.png)' }}>
         <div className="max-w-[1400px] w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 items-center">
           {/* Left Content */}
           <div className="flex flex-col justify-center space-y-8 md:space-y-12">
