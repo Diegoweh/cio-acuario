@@ -128,8 +128,8 @@ export default function Home() {
           },
         ]}
         address="Av. de los Deportes 111, Tellería, 82017 Mazatlán, Sin."
-        phone="+52 (687) 123-4567"
-        email="info@ciomardecortes.org"
+        phone="+52 1 669 543 4088"
+        email="cio@granacuario.com"
         socialLinks={{
           facebook: "https://www.facebook.com/cio.granacuario/",
           instagram: "https://www.instagram.com/cio.granacuario",
