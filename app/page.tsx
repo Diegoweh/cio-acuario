@@ -131,9 +131,10 @@ export default function Home() {
         phone="+52 (687) 123-4567"
         email="info@ciomardecortes.org"
         socialLinks={{
-          facebook: "https://facebook.com",
-          instagram: "https://instagram.com",
-          twitter: "https://twitter.com",
+          facebook: "https://www.facebook.com/cio.granacuario/",
+          instagram: "https://www.instagram.com/cio.granacuario",
+          whatsapp:
+            "https://wa.me/5216695434088?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n.",
         }}
       />
     </div>

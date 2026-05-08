@@ -4,7 +4,7 @@ import type React from "react"
 
 import Link from "next/link"
 import { Mail, MapPin, Phone } from "lucide-react"
-import { Facebook, Instagram, Twitter } from "lucide-react"
+import { Facebook, Instagram } from "lucide-react"
 
 interface FooterLink {
   label: string
@@ -22,8 +22,21 @@ interface FooterProps {
   socialLinks?: {
     facebook?: string
     instagram?: string
-    twitter?: string
+    whatsapp?: string
   }
+}
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.49s1.07 2.89 1.22 3.09c.15.2 2.11 3.22 5.11 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35ZM12.05 2a9.95 9.95 0 0 0-8.57 15.02L2 22l5.1-1.34A9.95 9.95 0 1 0 12.05 2Zm0 18.21a8.25 8.25 0 0 1-4.21-1.15l-.3-.18-3.02.79.81-2.94-.19-.3a8.24 8.24 0 1 1 6.91 3.78Z" />
+    </svg>
+  )
 }
 
 export function Footer({
@@ -124,13 +137,13 @@ export function Footer({
                     <Instagram className="w-5 h-5" />
                   </a>
                 )}
-                {socialLinks.twitter && (
+                {socialLinks.whatsapp && (
                   <a
-                    href={socialLinks.twitter}
-                    aria-label="Twitter"
+                    href={socialLinks.whatsapp}
+                    aria-label="WhatsApp"
                     className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-cyan-400/10 hover:bg-cyan-400/20 text-cyan-300 hover:text-cyan-200 transition-all duration-200"
                   >
-                    <Twitter className="w-5 h-5" />
+                    <WhatsAppIcon className="w-5 h-5" />
                   </a>
                 )}
               </div>
