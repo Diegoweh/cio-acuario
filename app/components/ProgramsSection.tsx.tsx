@@ -83,7 +83,10 @@ export function ProgramsSection() {
   return (
     <>
       {/* First Section - Link on Right */}
-      <section className="flex items-center justify-center bg-gray-50 px-4 py-16 md:py-14 overflow-hidden">
+      <section
+        id="programas"
+        className="scroll-mt-20 flex items-center justify-center bg-gray-50 px-4 py-16 md:py-14 overflow-hidden"
+      >
         <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="flex flex-col justify-center space-y-8">
@@ -128,7 +131,7 @@ export function ProgramsSection() {
           >
             <div className="flex justify-center items-center w-full md:w-auto">
               <Link
-                href="/"
+                href="https://www.amazon.com.mx/hz/wishlist/ls/G5ZRKY7YAMYK?ref_=wl_share"
                 className="text-white hover:text-gray-300 bg-sky-500 px-6 py-3 rounded-md transition-colors duration-200 text-sm lg:text-base uppercase font-bold"
               >
                 Donar

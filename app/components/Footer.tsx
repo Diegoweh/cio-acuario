@@ -159,14 +159,6 @@ export function Footer({
           <p>
             &copy; {new Date().getFullYear()} {organizationName}. Todos los derechos reservados.
           </p>
-          <div className="mt-4 md:mt-0 flex gap-6">
-            <Link href="/privacy" className="hover:text-cyan-300 transition-colors">
-              Privacidad
-            </Link>
-            <Link href="/terms" className="hover:text-cyan-300 transition-colors">
-              Términos
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

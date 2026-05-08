@@ -120,12 +120,12 @@ export default function Home() {
         organizationName="Centro de Investigaciones Oceánicas del Mar de Cortés"
         description="Dedicados a la conservación y investigación marina del Mar de Cortés"
         menuLinks={[
-          { label: "Nosotros", href: "#" },
-          { label: "Programas", href: "#" },
-          { label: "Súmate a la causa", href: "#" },
-          { label: "Participa", href: "#" },
-          { label: "Recursos educativos", href: "#" },
-          { label: "Dona", href: "#" },
+          { label: "Nosotros", href: "#nosotros" },
+          { label: "Programas", href: "#programas" },
+          {
+            label: "Dona",
+            href: "https://www.amazon.com.mx/hz/wishlist/ls/G5ZRKY7YAMYK?ref_=wl_share",
+          },
         ]}
         address="Av. de los Deportes 111, Tellería, 82017 Mazatlán, Sin."
         phone="+52 (687) 123-4567"

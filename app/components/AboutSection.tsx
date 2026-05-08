@@ -23,7 +23,11 @@ export function AboutSection() {
 
       <FlyingPelican />
 
-      <section className="flex items-center justify-center px-4 py-16 md:py-24 lg:py-32 overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/img/blue-bg.png)' }}>
+      <section
+        id="nosotros"
+        className="scroll-mt-20 flex items-center justify-center px-4 py-16 md:py-24 lg:py-32 overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/img/blue-bg.png)' }}
+      >
         <div className="max-w-[1400px] w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 items-center">
           {/* Left Content */}
           <div className="flex flex-col justify-center space-y-8 md:space-y-12">
@@ -50,7 +54,7 @@ export function AboutSection() {
             </motion.div>
 
             {/* Links */}
-            <motion.div
+            {/* <motion.div
               className="flex flex-wrap gap-6 md:gap-8 text-sm md:text-lg lg:text-xl"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -85,7 +89,7 @@ export function AboutSection() {
               >
                 Intercambios
               </Link>
-            </motion.div>
+            </motion.div> */}
 
             {/* Divider */}
             <motion.div

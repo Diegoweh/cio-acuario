@@ -50,25 +50,19 @@ export default function Navbar() {
             {/* cápsula con blur para asegurar contraste */}
             <div className="flex items-center gap-6 px-4 py-2 rounded-full bg-black/30 backdrop-blur-md supports-backdrop-filter:backdrop-blur-md ring-1 ring-white/10">
               <Link
-                href="/"
+                href="#nosotros"
                 className="text-white hover:text-sky-200 transition-colors duration-200 text-sm lg:text-base"
               >
                 Nosotros
               </Link>
               <Link
-                href="/"
+                href="#programas"
                 className="text-white hover:text-sky-200 transition-colors duration-200 text-sm lg:text-base"
               >
                 Programas
               </Link>
               <Link
-                href="/"
-                className="text-white hover:text-sky-200 transition-colors duration-200 text-sm lg:text-base"
-              >
-                Súmate a la causa
-              </Link>
-              <Link
-                href="/"
+                href="https://www.amazon.com.mx/hz/wishlist/ls/G5ZRKY7YAMYK?ref_=wl_share"
                 className="text-white hover:text-gray-200 bg-sky-500/90 hover:bg-sky-500 px-3 py-1.5 rounded-4xl font-bold transition-colors duration-200 text-sm lg:text-base uppercase"
               >
                 Donar
@@ -108,28 +102,21 @@ export default function Navbar() {
         <div className="md:hidden bg-black/10 backdrop-blur">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link
-              href="/"
+              href="#nosotros"
               className="block px-3 py-2 text-white hover:bg-white/10 rounded-md transition-colors duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
               Nosotros
             </Link>
             <Link
-              href="/"
+              href="#programas"
               className="block px-3 py-2 text-white hover:bg-white/10 rounded-md transition-colors duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
               Programas
             </Link>
             <Link
-              href="/"
-              className="block px-3 py-2 text-white hover:bg-white/10 rounded-md transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Súmate a la causa
-            </Link>
-            <Link
-              href="/"
+              href="https://www.amazon.com.mx/hz/wishlist/ls/G5ZRKY7YAMYK?ref_=wl_share"
               className="block px-3 py-2 text-white bg-sky-500 hover:bg-sky-600 rounded-md transition-colors duration-200 uppercase font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
