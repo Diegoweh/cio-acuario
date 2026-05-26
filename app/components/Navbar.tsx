@@ -37,9 +37,9 @@ export default function Navbar() {
                 src="/img/logoCio.png"
                 alt="Logo de la empresa"
                 title='Logo'
-                width={130}
-                height={40}
-                className="h-auto w-auto "
+                width={462}
+                height={89}
+                className="h-9 w-auto sm:h-10 md:h-12"
                 priority
               />
             </Link>
