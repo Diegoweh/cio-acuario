@@ -9,6 +9,8 @@ import { ImpactBanner } from "./components/ImpactBanner";
 import { PartnersSection } from "./components/PartnersSection";
 import { Footer } from "./components/Footer";
 import { FlyingPelican } from "./components/FlyingPelican";
+import { CarreraSection } from "./components/CarreraSection";
+import { CarreraPopup } from "./components/CarreraPopup";
 
 export default function Home() {
   const sections = [
@@ -95,11 +97,15 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-50 font-sans">
 
+      <CarreraPopup />
+
       <Navbar />
 
       <Header />
 
       <Hero />      
+
+      <CarreraSection />
 
       <AboutSection />
 
@@ -122,6 +128,7 @@ export default function Home() {
         menuLinks={[
           { label: "Nosotros", href: "#nosotros" },
           { label: "Programas", href: "#programas" },
+          { label: "Carrera", href: "#carrera" },
           {
             label: "Dona",
             href: "https://www.amazon.com.mx/hz/wishlist/ls/G5ZRKY7YAMYK?ref_=wl_share",

@@ -62,6 +62,12 @@ export default function Navbar() {
                 Programas
               </Link>
               <Link
+                href="#carrera"
+                className="text-white hover:text-sky-200 transition-colors duration-200 text-sm lg:text-base"
+              >
+                Carrera
+              </Link>
+              <Link
                 href="https://www.amazon.com.mx/hz/wishlist/ls/G5ZRKY7YAMYK?ref_=wl_share"
                 className="text-white hover:text-gray-200 bg-sky-500/90 hover:bg-sky-500 px-3 py-1.5 rounded-4xl font-bold transition-colors duration-200 text-sm lg:text-base uppercase"
               >
@@ -114,6 +120,13 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Programas
+            </Link>
+            <Link
+              href="#carrera"
+              className="block px-3 py-2 text-white hover:bg-white/10 rounded-md transition-colors duration-200"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Carrera
             </Link>
             <Link
               href="https://www.amazon.com.mx/hz/wishlist/ls/G5ZRKY7YAMYK?ref_=wl_share"
