@@ -105,8 +105,6 @@ export default function Home() {
 
       <Hero />      
 
-      <CarreraSection />
-
       <AboutSection />
 
       <BannerSection />
@@ -119,6 +117,9 @@ export default function Home() {
         subtitle="Información de 2023 a octubre de 2025"
         sections={sections}
       />
+
+      <CarreraSection />
+
       <PartnersSection />
 
       <Footer
