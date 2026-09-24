@@ -20,6 +20,7 @@ import {
   X,
 } from 'lucide-react';
 import { REGISTRO_PAGO_URL } from '@/lib/carrera';
+import { trackEvent } from '@/lib/fpixel';
 
 const eventDetails = [
   { icon: Calendar, label: '22 de Noviembre, 2026' },
@@ -162,6 +163,12 @@ export function CarreraSection() {
               href={REGISTRO_PAGO_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent('InitiateCheckout', {
+                  content_name: 'Mazatlán Run Wild 2026',
+                  currency: 'MXN',
+                })
+              }
               className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-sky-500 hover:bg-sky-400 px-8 py-4 text-lg md:text-xl font-bold uppercase text-white shadow-xl transition-all duration-200 hover:scale-[1.02]"
             >
               Regístrate
