@@ -29,8 +29,8 @@ const eventDetails = [
 ];
 
 const prices = [
-  { label: 'Niños', amount: '$250' },
-  { label: 'Adultos', amount: '$300' },
+  { label: 'Niños', amount: '$300' },
+  { label: 'Adultos', amount: '$350' },
 ];
 
 const kits = [
