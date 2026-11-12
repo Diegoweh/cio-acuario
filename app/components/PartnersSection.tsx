@@ -24,6 +24,9 @@ export function PartnersSection({
           '/img/partners/bellaterra2.png',
           '/img/partners/gam.png',
           '/img/partners/proyecta.png',
+          '/img/partners/dportenis.png',
+          '/img/partners/hotshot.png',
+          '/img/partners/pesca-azteca.png',
         ];
 
   return (
