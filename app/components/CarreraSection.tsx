@@ -19,18 +19,11 @@ import {
   Compass,
   X,
 } from 'lucide-react';
-import { REGISTRO_PAGO_URL } from '@/lib/carrera';
-import { trackEvent } from '@/lib/fpixel';
 
 const eventDetails = [
   { icon: Calendar, label: '22 de Noviembre, 2026' },
   { icon: Clock, label: '6:30 A.M.' },
   { icon: MapPin, label: 'Av. Leonismo Internacional' },
-];
-
-const prices = [
-  { label: 'Niños', amount: '$300' },
-  { label: 'Adultos', amount: '$350' },
 ];
 
 const kits = [
@@ -122,7 +115,7 @@ export function CarreraSection() {
             />
           </motion.div>
 
-          {/* Datos + precios + CTA */}
+          {/* Datos + aviso de cupo lleno */}
           <motion.div
             initial={{ y: 60, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -143,41 +136,16 @@ export function CarreraSection() {
               ))}
             </ul>
 
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              {prices.map(({ label, amount }) => (
-                <div
-                  key={label}
-                  className="rounded-2xl bg-[#A6CE39] px-4 py-5 text-center shadow-lg"
-                >
-                  <p className="text-[#0B3C6B] font-bold uppercase text-sm tracking-wide">
-                    {label}
-                  </p>
-                  <p className="text-3xl md:text-4xl font-bold text-white drop-shadow">
-                    {amount}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-6 rounded-2xl bg-white/10 ring-2 ring-[#A6CE39] px-6 py-6 text-center shadow-lg">
+              <p className="text-2xl md:text-3xl font-bold uppercase text-[#A6CE39]">
+                ¡Se llenó!
+              </p>
+              <p className="mt-3 text-base sm:text-lg text-white">
+                Muchas gracias por correr por la biodiversidad. Nos vemos el
+                domingo 22 de noviembre a las 6:30 a.m. en Av. Leonismo
+                Internacional.
+              </p>
             </div>
-
-            <a
-              href={REGISTRO_PAGO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                trackEvent('InitiateCheckout', {
-                  content_name: 'Mazatlán Run Wild 2026',
-                  currency: 'MXN',
-                })
-              }
-              className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-sky-500 hover:bg-sky-400 px-8 py-4 text-lg md:text-xl font-bold uppercase text-white shadow-xl transition-all duration-200 hover:scale-[1.02]"
-            >
-              Regístrate
-            </a>
-
-            <p className="mt-3 text-center text-sm text-white/70">
-              Pago seguro en línea · También en la taquilla del Gran Acuario
-              Mazatlán (solo efectivo) o al WhatsApp 6692153234.
-            </p>
           </motion.div>
         </div>
 

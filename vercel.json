@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/inscripcion", "destination": "/#carrera", "permanent": false },
+    { "source": "/inscripcion/", "destination": "/#carrera", "permanent": false }
+  ]
+}
